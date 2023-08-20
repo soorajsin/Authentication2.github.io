@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, TextField, Typography } from "@mui/material";
 import "./mix.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [inpVal, setInpVal] = useState({
@@ -10,7 +10,7 @@ const Register = () => {
   });
 
 
-  // const history=useNavigate();
+  const history=useNavigate();
 
   const setVal = (e) => {
     const { name, value } = e.target;
@@ -50,7 +50,7 @@ const Register = () => {
       if (res.status === 201) {
         // alert("User login Successfullly");
         localStorage.setItem("userdatatoken", res.result.token);
-        // history("/dash");
+        history("/dash");
         setInpVal({ ...inpVal, email: "", password: "" });
       }
     }

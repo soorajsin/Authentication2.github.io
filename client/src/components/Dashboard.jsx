@@ -1,11 +1,14 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+  const history = useNavigate();
+
   const fetchdatatoken = async () => {
     const token = localStorage.getItem("userdatatoken");
-        console.log(token);
+    //         console.log(token);
 
-    const data = await fetch("http://localhost:4000/login/validuser", {
+    const data = await fetch("http://localhost:4000/validuser", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -14,12 +17,20 @@ const Dashboard = () => {
     });
 
     const res = await data.json();
-//     console.log(res);
+    //     console.log(res);
+
+    if (res.status === 401 || !res) {
+      //       console.log("Error page");
+      history("*");
+    } else {
+      console.log("user verify");
+      history("/dash");
+    }
   };
 
   useEffect(() => {
     fetchdatatoken();
-  }, []);
+  });
 
   return (
     <>

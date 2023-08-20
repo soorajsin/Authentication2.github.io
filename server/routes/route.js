@@ -129,7 +129,7 @@ router.post("/login", async (req, res) => {
 
 //valid user
 router.get("/validuser", authenticate , async(req, res)=>{
-          console.log("done");
+          // console.log("done");
 })
 
 
