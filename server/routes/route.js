@@ -3,7 +3,7 @@ const router = new express.Router();
 const userdb = require("../models/userSchema");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const authenticate=require("../middleware/authenticate");
+const authenticate = require("../middleware/authenticate");
 
 
 
@@ -107,8 +107,8 @@ router.post("/login", async (req, res) => {
                                                   // console.log(result);
 
                                                   res.status(201).json({
-                                                            status:201,
-                                                            message:"Successfull login user",
+                                                            status: 201,
+                                                            message: "Successfull login user",
                                                             result
                                                   })
                                         }
@@ -128,7 +128,7 @@ router.post("/login", async (req, res) => {
 
 
 //valid user
-router.get("/validuser", authenticate , async(req, res)=>{
+router.get("/validuser", authenticate, async (req, res) => {
           // console.log("done");
 })
 

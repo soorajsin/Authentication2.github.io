@@ -3,7 +3,7 @@ import React from 'react'
 const Error = () => {
   return (
     <>
-          <h1>Error </h1>
+          <h1 style={{textAlign:"center", color:"red"}}>Error </h1>
     </>
   )
 }

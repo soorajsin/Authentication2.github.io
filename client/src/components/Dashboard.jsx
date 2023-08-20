@@ -34,9 +34,15 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="dash">
+      <div className="dash" style={{ textAlign: "center" }}>
         <h1>Dashboard</h1>
-        userEmail: soorajsingh7505@gmail.com
+        <div className="img">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLcappFIgUTtt8vHLvmdq_jMS13Ilw7doh0WhGidSf&s"
+            alt="img"
+          />
+        </div>
+        <div className="email">User Email: soorajsingh7505@mail.com</div>
       </div>
     </>
   );
