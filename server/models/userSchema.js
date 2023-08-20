@@ -3,6 +3,8 @@ const {
 } = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const keysecret = "sjkhuiokjnbvgfdrtyuikjhgfdertfcv";
 
 
 
@@ -52,6 +54,25 @@ userSchema.pre("save", async function (next) {
           next();
 
 })
+
+
+
+//generate token
+userSchema.methods.generatAuthToken = async function () {
+          try {
+                    const token = jwt.sign({
+                              _id: this._id.toString()
+                    }, keysecret);
+                    this.tokens = this.tokens.concat({
+                              token
+                    });
+                    await this.save();
+                    return token;
+          } catch (error) {
+                    throw new Error("Not generate token.....")
+
+          }
+}
 
 
 
