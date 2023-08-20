@@ -1,0 +1,21 @@
+*{
+          margin: 0;
+          padding: 0;
+}
+.register{
+         width: 500px;
+}
+.register .h4{
+          text-align: center;
+          padding-top: 30px;
+          padding-bottom: 30px;
+}
+.register .form{
+          text-align: center;
+          padding-left: 0;
+          padding-bottom: 20px;
+}
+.register .form .text{
+          width: 280px;
+          color: #fff;
+}
