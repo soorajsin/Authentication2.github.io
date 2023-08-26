@@ -92,7 +92,7 @@ router.post("/login", async (req, res) => {
 
                                                   //token generate
                                                   const token = await checkEmail.generatAuthToken();
-                                                  console.log(token);
+                                                  // console.log(token);
 
                                                   //generate cookie
                                                   res.cookie("usercookie", token, {

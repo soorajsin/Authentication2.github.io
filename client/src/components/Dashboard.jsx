@@ -1,12 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { LoginContext } from "./ContextProvider/Context";
 
 const Dashboard = () => {
+  const { logindata, setLoginData } = useContext(LoginContext);
+  console.log(logindata);
+
   const history = useNavigate();
 
   const fetchdatatoken = async () => {
     const token = localStorage.getItem("userdatatoken");
-    //         console.log(token);
+    // console.log(token);
 
     const data = await fetch("http://localhost:4000/validuser", {
       method: "GET",
@@ -17,13 +21,14 @@ const Dashboard = () => {
     });
 
     const res = await data.json();
-    //     console.log(res);
+        // console.log(res);
 
     if (res.status === 401 || !res) {
       //       console.log("Error page");
       history("*");
     } else {
       console.log("user verify");
+      setLoginData(res);
       history("/dash");
     }
   };
@@ -42,7 +47,7 @@ const Dashboard = () => {
             alt="img"
           />
         </div>
-        <div className="email">User Email: soorajsingh7505@mail.com</div>
+        <div className="email">User Email: {}</div>
       </div>
     </>
   );

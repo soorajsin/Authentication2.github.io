@@ -9,8 +9,7 @@ const Register = () => {
     password: "",
   });
 
-
-  const history=useNavigate();
+  const history = useNavigate();
 
   const setVal = (e) => {
     const { name, value } = e.target;
